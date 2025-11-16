@@ -1,6 +1,6 @@
 /*
 
-Pari e Dispari
+pari e dispari
     L’utente sceglie se puntare su un esito "pari" o "dispari"
     L'utente inserisce un numero da 1 a 5.
     Generiamo un numero random (sempre da 1 a 5) per il computer (usando una funzione).
@@ -18,25 +18,28 @@ Palidroma
 
 function pariODispari (userChoice, userNumber) {
 
-    userChoice = prompt("Scegli un esito: Pari o Dispari?");
+    userChoice = prompt("Scegli un esito: pari o dispari?").toLowerCase();
     userNumber = prompt("Scegli un numero da 1 a 5 compreso:");
 
     const computerNumber = Math.floor(Math.random() * 6);
 
     const sumNumber = parseInt(userNumber) + parseInt(computerNumber);
 
+    const pari = sumNumber % 2 == 0;
+    const dispari = sumNumber % 2 != 0;
+
     if (userNumber > 5) {
         console.log("Hai selezionato un numero più grande di 5. Riprova");
-    } else if (sumNumber % 2 == 0 && userChoice == "Pari") {
-    console.log(`L'utente ha scelto: ${userNumber}; mentre il computer ha scelto: ${computerNumber}. Il risultato è ${sumNumber}: Ha vinto l'utente`);
-    } else if (sumNumber % 2 == 0 && userChoice == "Dispari") {
+    } else if (pari && userChoice == "pari") {
+        console.log(`L'utente ha scelto: ${userNumber}; mentre il computer ha scelto: ${computerNumber}. Il risultato è ${sumNumber}: Ha vinto l'utente`);
+    } else if (pari && userChoice == "dispari") {
         console.log(`L'utente ha scelto: ${userNumber}; mentre il computer ha scelto: ${computerNumber}. Il ${sumNumber}: risultato è Ha vinto il computer`);
-    } else if (sumNumber % 2 != 0 && userChoice == "Pari") {
+    } else if (dispari && userChoice == "pari") {
         console.log(`L'utente ha scelto: ${userNumber}; mentre il computer ha scelto: ${computerNumber}. Il ${sumNumber}: risultato è Ha vinto il computer`);
-    } else if (sumNumber % 2 != 0 && userChoice == "Dispari") {
+    } else if (dispari && userChoice == "dispari") {
         console.log(`L'utente ha scelto: ${userNumber}; mentre il computer ha scelto: ${computerNumber}. Il risultato è ${sumNumber}: Ha vinto l'utente`);
     } else {
-        console.log("Input invalido. Attenzione a inserire 'Pari' e 'Dispari' con le maiuscole");
+        console.log("Input invalido. Attenzione a inserire 'pari' e 'dispari' con le maiuscole");
     }
 
 }
@@ -54,7 +57,3 @@ function isPalindrome(word) {
 
     return true;
 }
-
-let userInput = prompt("Scrivi una singola parola e ti dirò se è palindroma");
-
-console.log(isPalindrome(userInput));
