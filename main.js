@@ -39,7 +39,7 @@ function pariODispari (userChoice, userNumber) {
     } else if (dispari && userChoice == "dispari") {
         console.log(`L'utente ha scelto: ${userNumber}; mentre il computer ha scelto: ${computerNumber}. Il risultato è ${sumNumber}: Ha vinto l'utente`);
     } else {
-        console.log("Input invalido. Attenzione a inserire 'pari' e 'dispari' con le maiuscole");
+        console.log("Input invalido. Riprova");
     }
 
 }
